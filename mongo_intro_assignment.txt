@@ -1,0 +1,22 @@
+
+use assignment
+
+db.createCollection('users');
+
+db.users.insertOne({ 'first_name':'Rithesh','last_name':'Dhwan','email':'adfdf@gmail.com','gender':'M','ip_address':'182.92.111.32','age':34})
+db.users.insertOne({ 'first_name':'Ritwik','last_name':'Diel','email':'zdfdf@gmail.com','gender':'M','ip_address':'112.92.111.32','age':24})
+db.users.insertOne({ 'first_name':'Riya','last_name':'P','email':'hdfddf@gmail.com','gender':'F','ip_address':'212.92.111.32','age':22})
+db.users.insertOne({ 'first_name':'Riza','last_name':'K K','email':'ydfddf@gmail.com','gender':'F','ip_address':'211.92.111.32','age':27})
+db.users.insertOne({ 'first_name':'Aizawa','last_name':'Hureshi','email':'azfddf@gmail.com','gender':'M','ip_address':'261.92.161.32','age':27})
+
+db.users.insertMany([ { 'first_name':'Naruto','last_name':'Uzumaki','email':'nzfddf@gmail.com','gender':'M','ip_address':'261.92.161.32','age':29},{ 'first_name':'Kiera','last_name':'Hazar','email':'kzfddf@gmail.com','gender':'F','ip_address':'267.92.161.32','age':27},{ 'first_name':'Ziwan','last_name':'Zeiki','email':'zzfddf@gmail.com','gender':'M','ip_address':'261.192.161.32','age':27},{ 'first_name':'Aizi','last_name':'Hiraku','email':'azfagdf@gmail.com','gender':'F','ip_address':'261.92.121.32','age':17},{ 'first_name':'Shoya','last_name':'Hinata','email':'azioddf@gmail.com','gender':'M','ip_address':'261.92.161.132','age':22}])
+
+db.users.update({'first_name':'Aizi'},{$set:{'age':18}})
+db.users.updateMany({'age':{$gte:18}},{$set:{'eligible':true}})
+db.users.updateOne({'ip_address':'211.92.111.32'},{$set:{'ip_address':'192.56.111.08'}})
+
+db.users.remove({'first_name':'Naruto'})
+db.users.deleteOne({_id: ObjectId("6226528bcea396765a6f64de")})
+db.users.deleteMany({age:{$gt:24}})
+
+db.dropDatabase()
